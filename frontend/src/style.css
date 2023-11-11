@@ -1,0 +1,10 @@
+@font-face {
+    font-family: arabic_quran;
+    src: url("/myfolder/style/LPMQ.ttf");
+}
+
+@font-face {
+    font-family: suraname;
+    src: url("/myfolder/style/surah_names.woff2");
+}
+ 
