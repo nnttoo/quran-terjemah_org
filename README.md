@@ -16,7 +16,7 @@ For users who speak Indonesian, you can read the information through:
 
 ## Install
 
-For Windows users, you can directly download it on the release page,
+For Windows users, you can directly download it on the [release page](https://github.com/nnttoo/quran-terjemah_org/releases/latest),
 whereas for other OS users, you can build from the source by   
 
 ```
