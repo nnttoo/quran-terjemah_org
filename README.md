@@ -12,4 +12,8 @@ The audio sources within the application come from other websites, including [ww
 
 For Windows users, you can directly download it from the release page. Meanwhile, for users of other operating systems, you can build it from the source.
 
+```
+wails build
+```
+
 For comprehensive information about Wails, you can refer to [wails](https://wails.io/).
