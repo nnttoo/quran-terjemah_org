@@ -2,21 +2,18 @@ import React from "react";
 import { AppContext } from "./appContext";
 import { RightMenu } from "./menuelem/rightMenu";
 import { IconButton, AppBar, Toolbar, Box, Typography } from "@mui/material";
-import { Menu } from "@mui/icons-material";
-
-export class TopFrame extends React.Component {
-
+import { Menu, Settings } from "@mui/icons-material";
+import { PopupPengaturanController } from "./page_pengaturan/popup_pentaturan_controller";
 
 
-    render(): React.ReactNode {
-        let ctx = AppContext.current;
-
-        return (
-            <>
+export const TopFrame = () => {
+    let ctx = AppContext.current;
+    return (
+        <>
             <AppBar position="fixed"   >
                 <Toolbar>
                     <IconButton color="inherit"
-                        onClick={() => { 
+                        onClick={() => {
                             ctx.openpage({
                                 nomorayat: "1",
                                 nomorsurah: "1",
@@ -35,6 +32,20 @@ export class TopFrame extends React.Component {
 
                     <Box sx={{ flexGrow: 1 }}></Box>
                     <IconButton
+                        onClick={()=>{
+                            PopupPengaturanController.current
+                            .openPengaturan();
+                        }}
+
+                         size="large"
+                         edge="start"
+                         color="inherit"
+                         aria-label="menu"
+                         sx={{ mr: 2 }}
+                    >
+                        <Settings/>
+                    </IconButton>
+                    <IconButton
                         onClick={() => {
                             ctx.openMenu(true);
                         }}
@@ -50,56 +61,7 @@ export class TopFrame extends React.Component {
                 </Toolbar>
 
             </AppBar>
-            <RightMenu  />
-            </>
-            // <div>
-            //     <div className="navbar fixed-top navbar-light bg-white shadow topframe">
-            //         <div
-            //             onClick={() => {
-            //                 let ctx = AppContext.current;
-            //                 ctx.openpage({
-            //                     nomorayat : "1",
-            //                     nomorsurah : "1",
-            //                     pagetype : "home",
-            //                 })
-            //             }}
-            //             className="logodantext">
-
-            //             <img src="/style/qrn_logo.png" alt="quran logo" />
-            //             <div className="ttl">Quran-Terjemah.org </div>
-            //         </div>
-
-            //         <IconButton>
-            //             <Menu/>
-            //         </IconButton>
-
-            //         <span
-            //             onClick={() => {
-            //                 ctx.refMenuElem.current?.togleOpenClose();
-            //             }}
-            //             id="menubutton" className="material-icons">
-            //             settings
-            //         </span>
-            //     </div>
-            //     <RightMenu ref={ctx.refMenuElem} />
-            // </div>
-
-        )
-
-        // return (
-        //     <div className="navbar fixed-top navbar-light bg-light">
-        //         <div className="container-fluid">
-        //             <div className="navbar-header">
-        //                 <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        //                     <span className="sr-only">Toggle navigation</span>
-        //                     <span className="icon-bar"></span>
-        //                     <span className="icon-bar"></span>
-        //                     <span className="icon-bar"></span>
-        //                 </button>
-        //                 <a className="navbar-brand" href="#">Brand</a>
-        //             </div>
-        //         </div>
-        //     </div>
-        // )
-    }
-}
+            <RightMenu />
+        </>
+    )
+} 

@@ -8,6 +8,7 @@ import { AppContext } from './srcBrowser/appContext'
 import { Box, ThemeProvider, createTheme } from '@mui/material'
 import { TopFrame } from './srcBrowser/topframe'
 import { HomePage } from './srcBrowser/hompage'
+import { PopupPengaturan } from './srcBrowser/page_pengaturan/popup_pengaturan'
 
 
 window.console.log = (data) => {
@@ -33,31 +34,26 @@ const theme = createTheme({
     },
 });
 
-const QuranApp = ()=>{ 
+let ctx = AppContext.current = new AppContext();
+const QuranApp = ()=>{  
 
-    useEffect(()=>{
+    const [keyreload,setKeyReload] = useState(0);
 
-        console.log("in inyobain");
-
-        (async ()=>{
-            let asV = await fetch("/kukuru/yuuaeheeheuhuuhu.kk");
-            let a = await asV.text();
-            console.log(a);
-        })()
-
-    },[])
+    ctx.reloadPage = ()=>{
+        setKeyReload(keyreload + 1);
+    }
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme} key={keyreload + ""}>
             <Box p={1}>
                 <TopFrame />
                 <HomePage />                 
             </Box>
+            <PopupPengaturan/>
         </ThemeProvider>
     )
 }
 
-let ctx = AppContext.current = new AppContext();
 
 const container = document.getElementById('qroot')
 const root = createRoot(container!)
