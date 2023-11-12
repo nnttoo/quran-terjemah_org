@@ -6,12 +6,7 @@ Quran Terjemah adalah aplikasi versi desktop, dari website [Quran-terjemah.org](
 
 Aplikasi ini menggunakan database kemenag indonesia dan dikembangkan dengan Wails,
 
-Sumber audio di dalam aplikasi ini berasal dari website lain, diantaranya dalah [www.everyayah.com](https://www.everyayah.com)
-
-
-## Bahasa
-Untuk pengguna yang berbahasa indonesia dapat membaca informasi melalui : 
-[Readme Indonesia](./README_id.md)
+Sumber audio di dalam aplikasi ini berasal dari website lain, diantaranya dalah [www.everyayah.com](https://www.everyayah.com) 
  
 
 ## Install
