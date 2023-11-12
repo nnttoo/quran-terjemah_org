@@ -1,11 +1,12 @@
 import { createContext } from "react";
-import { QorySelector } from "../audioplayer/qorySelector";
+import { QorySelector } from "./qorySelector";
 
 export type PlayerListener = {
     onPlay: (() => void) | null,
     onScoll : (()=>void) | null, 
     onPause : (()=>void) | null,
     onLoading : (()=>void) | null,
+    onBGDark :((isdark :boolean)=>void) | null,
 }
   
 type AyahSurahArg = {
@@ -52,6 +53,8 @@ export class PlayerListenerSaver {
         this.pSaverAudio.addEventListener("ended", () => {
 
             playerListener.onPause?.();
+            playerListener.onBGDark?.(false);
+            
             let numAyah = Number(p.a);
             numAyah++;
             
@@ -64,11 +67,13 @@ export class PlayerListenerSaver {
 
         this.pSaverAudio.addEventListener("pause", () => {
             playerListener.onPause?.();
+            playerListener.onBGDark?.(false);
         })
 
         this.pSaverAudio.addEventListener("play", () => {
             playerListener.onPlay?.();
             playerListener.onScoll?.();
+            playerListener.onBGDark?.(true);
         })
 
         QorySelector.current.onQoriChange = ()=>{

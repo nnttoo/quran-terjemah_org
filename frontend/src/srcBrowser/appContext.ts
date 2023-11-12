@@ -1,5 +1,4 @@
-import React from "react"; 
-import type { QrnAudioPlayer } from "./audioplayer/qrnAudioplayer";
+import React from "react";  
 import type { RightMenu } from "./menuelem/rightMenu";  
 export type HomePageInfo = {
     pagetype : "home" | "surah",
@@ -10,8 +9,6 @@ export type HomePageInfo = {
 
 export class AppContext{   
     openMenu  = (open : boolean)=>{}
-    openpage : (pageProp : HomePageInfo)=>void = (q)=>{};
-
-    qrnAudioPlayer : QrnAudioPlayer | null = null;
+    openpage : (pageProp : HomePageInfo)=>void = (q)=>{}; 
     static current : AppContext
 }

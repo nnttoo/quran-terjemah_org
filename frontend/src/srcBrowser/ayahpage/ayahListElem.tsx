@@ -3,7 +3,7 @@ import { DataAyat, SurahData } from "../../surahtools/dbtype"
 import { getAyahById } from "../../surahtools/surahtools";
 import { LoadingReact } from "../loadingreact/loadingreact";
 import { Box } from "@mui/material";
-import {   PlayerListenerContext, PlayerListenerSaver } from "./ayahPlayerListenerSaver";
+import {   PlayerListenerContext, PlayerListenerSaver } from "../audioplayer/ayahPlayerListenerSaver";
 import { sleep } from "../tools/sleep";
 import { AyahListElemChild } from "./ayahListElemChild";
 
@@ -69,6 +69,7 @@ export const AyahListElem = (p: {
                         onPause : null,
                         onPlay : null,
                         onScoll : null,
+                        onBGDark : null,
                     }
 
                 })

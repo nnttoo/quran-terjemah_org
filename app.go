@@ -1,8 +1,8 @@
 package main
 
 import (
-	"changeme/srcgo"
 	"context"
+	"quran-terjemah-go/srcgo"
 )
 
 // App struct

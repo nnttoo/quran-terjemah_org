@@ -1,4 +1,4 @@
-module changeme
+module quran-terjemah-go
 
 go 1.18
 

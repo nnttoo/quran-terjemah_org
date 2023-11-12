@@ -1,6 +1,6 @@
 import { AutoMode, Pause, PlayArrow } from "@mui/icons-material";
 import { Fab } from "@mui/material";
-import { AudioState, PlayerListenerContext } from "./ayahPlayerListenerSaver";
+import { AudioState, PlayerListenerContext } from "../audioplayer/ayahPlayerListenerSaver";
 import { useContext, useEffect, useRef, useState } from "react";
 function scrollToTargetAdjusted(element: HTMLElement | null) {
     if(element == null) return;
@@ -19,8 +19,7 @@ function scrollToTargetAdjusted(element: HTMLElement | null) {
 
 export const AyahPlayerButton = (p : { 
     nomorSurat : string,
-    nomorAyat : string,
-    onBgDark : (s : boolean)=>void
+    nomorAyat : string, 
 
 })=>{
 
@@ -40,21 +39,17 @@ export const AyahPlayerButton = (p : {
             return;
         }
 
-        playerListener.onLoading = ()=>{
-            p.onBgDark(true);
+        playerListener.onLoading = ()=>{ 
             setPlayState("loading");            
         }
-        playerListener.onPause = ()=>{
-            p.onBgDark(false);
+        playerListener.onPause = ()=>{ 
             setPlayState("pause")
         }
-        playerListener.onPlay = ()=>{
-            p.onBgDark(true);
+        playerListener.onPlay = ()=>{ 
             setPlayState("play");
         }
 
-        playerListener.onScoll = ()=>{
-            p.onBgDark(true);
+        playerListener.onScoll = ()=>{ 
             scrollToTargetAdjusted(refHtml.current);
         }
     })(); 

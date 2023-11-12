@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material"
 import { DataAyat, SurahData } from "../../surahtools/dbtype"
 import { BookmarkBut } from "../bookmarktools/bookmarkbut" 
-import { AudioState, PlayerListener, PlayerListenerSaver } from "./ayahPlayerListenerSaver"
-import { useState } from "react"
+import { AudioState, PlayerListener, PlayerListenerContext, PlayerListenerSaver } from "../audioplayer/ayahPlayerListenerSaver"
+import { useContext, useState } from "react"
 import { AyahPlayerButton } from "./ayahPlayerBut"
 
 export const AyahListElemChild = (p: {
@@ -11,6 +11,28 @@ export const AyahListElemChild = (p: {
 }) => {
     const [bgDark, setBgDark] = useState(false); 
     let bgcolor = bgDark ? "#eee" : "#fff";
+
+    
+    const playerListenerSaver = useContext(PlayerListenerContext);
+    (()=>{
+        if(playerListenerSaver == null){
+            return;
+        }
+
+        let playerListener = playerListenerSaver.getPlayerListener({
+            a: p.dataAyah.VerseID + "",
+            s : p.dataSurah.id + "",
+        })
+
+        if(playerListener == null) return;
+
+        playerListener.onBGDark = (isdark)=>{
+            setBgDark(isdark);
+        }
+
+
+
+    })();
 
 
 
@@ -46,10 +68,7 @@ export const AyahListElemChild = (p: {
 
                 <AyahPlayerButton
                     nomorAyat={p.dataAyah.VerseID + ""}
-                    nomorSurat={p.dataSurah.id + ""}
-                    onBgDark={(s)=>{
-                        setBgDark(s);
-                    }}
+                    nomorSurat={p.dataSurah.id + ""} 
                 ></AyahPlayerButton> 
             </Box>
         </Box>
