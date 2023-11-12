@@ -2,11 +2,11 @@
 
 ## About
 
-Quran Translation is a desktop version application, from the website [Quran-translation.org](https://quran-translation.org) for reading the Quran and listening to Quran reciters like Mishary bin Rashid Alafasy and others.
+Quran Translation is a desktop version application, from the website [Quran-terjemah.org](https://quran-terjemah.org) for reading the Quran and listening to Quran reciters like Mishary bin Rashid Alafasy and others.
 
 This application uses the Indonesian Ministry of Religious Affairs database and is developed with Wails.
 
-The audio source in this application comes from other websites, among them is [www.everyayah.com](www.everyayah.com)
+The audio source in this application comes from other websites, among them is [www.everyayah.com](https://www.everyayah.com)
 
 
 ## Language

@@ -46,6 +46,7 @@ export const AyahListElem = (p: {
 
                 if(pListener != null && pListener.onScoll != null){
                     pListener.onScoll(); 
+                    pListener.onBGDark?.(true)
 
                     break;
                 }
