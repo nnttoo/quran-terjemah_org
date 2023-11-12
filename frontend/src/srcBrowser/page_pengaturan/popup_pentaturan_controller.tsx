@@ -3,13 +3,15 @@ import { AppContext } from "../appContext";
  
 export class PopupPengaturanController  {
     modalopen = false;
+
+    
     setModal =  (mo : boolean, menuname? : string)=>{
 
     }
 
     
 
-    onClose(){
+    onCloseListener(){
         this.modalopen = false;
     } 
 
@@ -25,10 +27,15 @@ export class PopupPengaturanController  {
  
                     let ctx = AppContext.current;
                     ctx.reloadPage();
+                    console.log("reloadpage")
                 }
             },200)
  
         })
+    }
+
+    closePengaturan(){
+        this.setModal(false,"");
     }
 
     static current : PopupPengaturanController ;

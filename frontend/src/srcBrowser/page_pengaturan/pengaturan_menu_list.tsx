@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { DeveloperBoard, Face, IntegrationInstructions, Language, PermDataSetting } from '@mui/icons-material/';
+import { DeveloperBoard, Face, IntegrationInstructions, Language, PermDataSetting, Translate } from '@mui/icons-material/';
 import { AppContext } from '../appContext';
+import { PagePengaturanBahasa } from './page_pengaturan_bahasa';
  
 
 export type PengaturanMenuType = {
@@ -21,9 +22,9 @@ export const pengMenuList = (): PengaturanMenuType[] => {
 
         {
 
-            icon: <Language />,
-            text: bahasa.ppml_pengaturanbahasa,
-            page: <></>,
+            icon: <Translate />,
+            text: bahasa.pppml_pengaturanbahasa,
+            page: <PagePengaturanBahasa/>,
             name : "lang",
         }, 
         

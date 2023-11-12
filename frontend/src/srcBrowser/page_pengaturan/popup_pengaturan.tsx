@@ -1,5 +1,5 @@
 import { Box, Modal } from "@mui/material"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { PengaturanPage } from "./pengaturan_page";   
 import { LoadingPage } from "./loadingpage";
 import { PopupPengaturanController } from "./popup_pentaturan_controller";
@@ -16,7 +16,12 @@ export const PopupPengaturan = () => {
         
         setmodalOpen(mo);
     }
+    useEffect(() => {
+        if (!modalopen) {
+            mycontroller.onCloseListener();
+        }
 
+    }, [modalopen])
 
     return (
         <Modal

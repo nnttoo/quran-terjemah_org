@@ -9,6 +9,7 @@ import { Box, ThemeProvider, createTheme } from '@mui/material'
 import { TopFrame } from './srcBrowser/topframe'
 import { HomePage } from './srcBrowser/hompage'
 import { PopupPengaturan } from './srcBrowser/page_pengaturan/popup_pengaturan'
+import { MyAlertDialog } from './srcBrowser/dialog/myalert_dialog'
 
 
 window.console.log = (data) => {
@@ -60,5 +61,6 @@ const root = createRoot(container!)
 root.render(
     <React.StrictMode>
         <QuranApp/>
+        <MyAlertDialog/>
     </React.StrictMode>
 )
