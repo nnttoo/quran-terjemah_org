@@ -18,7 +18,13 @@ Untuk pengguna yang berbahasa indonesia dapat membaca informasi melalui :
 
 Untuk pengguna windows, anda bisa langsung mengunduh di halaman release,
 sedangkan untuk pengguna Os lain, anda bisa build dari source dengan cara   
- 
+
+```
 wails build 
+```
  
 Untuk informasi lengkap mengenai wails bisa anda lihat di sini [wails](https://wails.io/)
+
+## Screenshot
+
+![ss](./screenshot/ss.png)
