@@ -1,19 +1,15 @@
-# README
+# Quran-Terjemah.org
 
 ## About
 
-This is the official Wails React-TS template.
+Quran Terjemah is a desktop application derived from the [Quran-terjemah.org](https://quran-terjemah.og) website. It is designed for reading the Quran and listening to Quranic reciters such as Mishary bin Rashid Alafasy and others.
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+The application uses the Indonesian Ministry of Religious Affairs (Kemenag) database and is developed with Wails.
 
-## Live Development
+The audio sources within the application come from other websites, including [www.everyayah.com](www.everyayah.com).
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+## Install
 
-## Building
+For Windows users, you can directly download it from the release page. Meanwhile, for users of other operating systems, you can build it from the source.
 
-To build a redistributable, production mode package, use `wails build`.
+For comprehensive information about Wails, you can refer to [wails](https://wails.io/).
