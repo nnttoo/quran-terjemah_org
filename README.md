@@ -28,3 +28,16 @@ For complete information about wails, you can see it here [wails](https://wails.
 ## Screenshot
 
 ![ss](./screenshot/ss.png) 
+ 
+## Offline Reciters Playback
+
+You can play the Reciters offline by inserting the folder where you store the audio files. The audio files for the Quran can be obtained from several sources, including the Quran project version here: [sourceforge](https://sourceforge.net/projects/quranterjemah/files/Audio/quran-terjemah-audio.zip/download)
+
+- Download the Audio File
+- Extract the audio file from the zip file
+- Open the settings in the quran-terjemah.org app
+    
+    ![ss](./screenshot/ss2.png)
+
+- Then type the name, and select the file type, if you download from the link I showed then select ogg
+- Press save 
