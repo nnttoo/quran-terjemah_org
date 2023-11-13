@@ -61,6 +61,8 @@ export const PagePengaturanBahasa = () => {
                     appconfig.saveAppConfig();
                     PopupPengaturanController.current
                     .closePengaturan();
+                    
+                    ctx.reloadPage();
 
                 }}
                 variant="contained" sx={{marginTop : 2}}>

@@ -129,9 +129,9 @@ export const PengaturanQori = () => {
       qoriSelector.getDaftarQory()
    );
 
+   let ctx = AppContext.current;
 
-
-   let { bahasa } = AppContext.current;
+   let bahasa  = ctx.bahasa;
 
    return (
       <Box sx={{
@@ -224,7 +224,7 @@ export const PengaturanQori = () => {
                size="small"
                onClick={() => {
                   qoriSelector.saveDaftarQory(daftarQori, true);
-
+                  ctx.reloadPage();
                }}
             >
                {bahasa.pq_simpan_setting}

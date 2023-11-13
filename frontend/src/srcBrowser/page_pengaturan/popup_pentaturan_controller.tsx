@@ -24,10 +24,7 @@ export class PopupPengaturanController  {
                 if(!this.modalopen){
                     clearInterval(itv);
                     r(null);
- 
-                    let ctx = AppContext.current;
-                    ctx.reloadPage();
-                    console.log("reloadpage")
+  
                 }
             },200)
  
