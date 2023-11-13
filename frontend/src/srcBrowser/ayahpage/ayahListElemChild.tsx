@@ -49,6 +49,7 @@ export const AyahListElemChild = (p: {
             <Typography
                 fontFamily="arabic_quran"
                 textAlign="right"
+                lineHeight={2.3}
                 fontSize="30px"
                 fontWeight={900}
                 gutterBottom
