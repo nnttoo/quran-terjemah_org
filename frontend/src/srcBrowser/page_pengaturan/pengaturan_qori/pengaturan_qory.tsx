@@ -1,5 +1,5 @@
-import { Delete, DriveFolderUpload, Face } from "@mui/icons-material"
-import { Box, Button, IconButton, ListItem, MenuItem, Select, TextField, Typography } from "@mui/material"
+import { Add, Delete, DriveFolderUpload, Face, ResetTv, Save } from "@mui/icons-material"
+import { Box, Button, Fab, IconButton, ListItem, MenuItem, Select, TextField, Typography } from "@mui/material"
 import { QoryData, QorySelector } from "../../audioplayer/qorySelector"
 import { useState } from "react"
 import { AppContext } from "../../appContext"
@@ -87,18 +87,16 @@ const QoryEditor = (p: {
                gap={2}
                justifyContent="space-around"
             >
-               <Button
+               <Fab
                   size="small"
                   color="warning"
-                  variant="contained"
-                  startIcon={<Delete />}
+                  variant="circular"
 
                   onClick={() => {
                      p.onRemove(qoriData);
                   }}
-               >
-                  {bahasa.pq_hapus}
-               </Button>
+               > <Delete />
+               </Fab>
 
                <Button
                   size="small"
@@ -158,8 +156,8 @@ export const PengaturanQori = () => {
 
 
 
-                        setDaftarQori(nDaftarQori);
                         qoriSelector.saveDaftarQory(nDaftarQori, false);
+                        setDaftarQori(qoriSelector.getDaftarQory());
 
 
                      }}
@@ -168,6 +166,33 @@ export const PengaturanQori = () => {
                   ></QoryEditor>
                ))
             }
+            <Box textAlign="center" p={3}>
+               <Fab
+                  onClick={() => {
+                     console.log("ininiiiiii")
+                     let ndaftarQory: QoryData[] = [];
+                     if (daftarQori != null) {
+                        ndaftarQory = [...daftarQori];
+                     }
+                     if (ndaftarQory == null) {
+                        ndaftarQory = [];
+                     }
+
+                     ndaftarQory.push({
+                        ftype: "mp3",
+                        nama: "",
+                        url: "",
+                     });
+
+                     qoriSelector.saveDaftarQory(ndaftarQory, false);
+                     setDaftarQori(qoriSelector.getDaftarQory());
+
+                  }}
+                  variant="circular" >
+                  <Add />
+               </Fab>
+            </Box>
+
          </Box>
 
          <Box sx={{
@@ -181,6 +206,7 @@ export const PengaturanQori = () => {
                variant="contained"
                color="warning"
                size="small"
+               startIcon={<ResetTv />}
 
                onClick={() => {
                   qoriSelector.resetToDeaultQori();
@@ -193,6 +219,7 @@ export const PengaturanQori = () => {
                {bahasa.pq_reset_qory}
             </Button>
             <Button
+               startIcon={<Save />}
                variant="contained"
                size="small"
                onClick={() => {

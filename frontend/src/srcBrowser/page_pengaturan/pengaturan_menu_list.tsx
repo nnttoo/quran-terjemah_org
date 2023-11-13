@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import { DeveloperBoard, Face, IntegrationInstructions, Language, Mosque, PermDataSetting, Translate } from '@mui/icons-material/';
+import { DeveloperBoard, Face, Info, IntegrationInstructions, Language, Mosque, PermDataSetting, Translate } from '@mui/icons-material/';
 import { AppContext } from '../appContext';
 import { PagePengaturanBahasa } from './page_pengaturan_bahasa';
 import { PengaturanQori } from './pengaturan_qori/pengaturan_qory';
+import { AboutPage } from './aboutpage';
  
 
 export type PengaturanMenuType = {
@@ -34,6 +35,15 @@ export const pengMenuList = (): PengaturanMenuType[] => {
             icon: <Mosque />,
             text: bahasa.pppml_reciter,
             page: <PengaturanQori/>,
+            name : "qori",
+        }, 
+
+        
+        {
+
+            icon: <Info />,
+            text: bahasa.pppml_about,
+            page: <AboutPage/>,
             name : "qori",
         }, 
     ];

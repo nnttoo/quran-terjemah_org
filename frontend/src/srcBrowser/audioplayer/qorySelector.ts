@@ -151,13 +151,18 @@ export class QorySelector {
 
     saveDaftarQory(ndaftar: QoryData[], safetoLocalStorage?: boolean) {
 
-        if (this.daftarQory == null) return;
-        if (this.daftarQory.length < 1) return;
+        if (ndaftar == null) return;
+        if (ndaftar.length == 0) return;
 
 
         this.daftarQory = ndaftar;
 
-        this.currentQory = this.checkQorySelected(this.currentQory?.url!);
+        let qoruURL = "" ; 
+        if(this.currentQory && this.currentQory.url) {
+            qoruURL = this.currentQory.url;
+        }
+
+        this.currentQory = this.checkQorySelected(qoruURL);
         if (!safetoLocalStorage) return;
 
         try {

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import {  QorySelector } from "../audioplayer/qorySelector";
+import { QorySelector } from "../audioplayer/qorySelector";
 import { BookMarkRightMenu } from "../bookmarktools/bookmarkRightMenu";
-import { Box, Divider, Drawer, Link, List, MenuItem, Select, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Divider, Drawer, Link, List, MenuItem, Select, Toolbar, Typography } from "@mui/material";
 import { AppContext } from "../appContext";
 import { QorySelectorElem } from "./qorySelectorElem";
 import { MyBorderRadius } from "./myradius";
 import { MenuFooter } from "./footer";
+import { MenuOpen } from "@mui/icons-material";
 
 
 
@@ -23,20 +24,37 @@ export const RightMenu = () => {
                 setDrawerOpen(false)
             }}
         >
-            <Box width="300px" p={1} height="100%"> 
-                <Box display="flex"  gap={2} flexDirection="column" height="100%">
-                    <Box p={1}/>
-                    <MyBorderRadius>
-                        <QorySelectorElem />
-                    </MyBorderRadius>
+            <Box
+                width="300px" height="100%"
+                display="flex"
+                flexDirection="column">
+                <AppBar position="static"  >
+                    <Toolbar variant='regular'>
+                        <Typography variant="h6">
+                            <MenuOpen/>
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <Box flex={1} sx={{
+                    overflowY : "auto",
+                    padding : 2
+                }}>
+                     <Box sx={{
+                        display : "flex",
+                        flexDirection : "column",
+                        gap : 2,
+                     }}>
+                        <MyBorderRadius>
+                            <QorySelectorElem />
+                        </MyBorderRadius>
 
-                    <MyBorderRadius>
-                        <BookMarkRightMenu />
-                    </MyBorderRadius>
-                    <Box flexGrow={1} />
-                    <MenuFooter/>
-
+                        <MyBorderRadius>
+                            <BookMarkRightMenu />
+                        </MyBorderRadius> 
+                    </Box>
                 </Box>
+
+                <MenuFooter /> 
             </Box>
 
         </Drawer>

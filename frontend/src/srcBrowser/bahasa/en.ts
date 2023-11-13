@@ -1,3 +1,5 @@
+import { about_en } from "./about_en";
+import { about_id } from "./about_id";
 import { bahasa_id } from "./id";
 
 export const bahasa_en : typeof bahasa_id = {
@@ -5,7 +7,7 @@ export const bahasa_en : typeof bahasa_id = {
     pppp_pengaturan : "Settings",
     pppml_pengaturanbahasa: "Language",
     pppml_reciter : "Reciters",
-
+    pppml_about : "About",
 
     ppb_bahasaui : "UI Language",
     ppb_bahasaterjemahan : "Translation Language",
@@ -15,13 +17,15 @@ export const bahasa_en : typeof bahasa_id = {
   
     
     md_tutup : "Close",
-
-    pq_hapus : "Delete",    
+ 
     pq_folder : "Folder",
     pq_url : "Url",    
     pq_name : "Reciters Name",    
     pq_reset_qory : "Reset Reciters",
     
-    pq_simpan_setting : "Save Setting",    
-    pq_file_ext : "File Extension",
+    pq_simpan_setting : "Save",    
+    pq_file_ext : "File Extension", 
+
+    ap_about  : about_en,
+    
 }  

@@ -1,4 +1,4 @@
-import { Button, Link, List, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material"
+import { Box, Button, Link, List, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material"
 import { MyBorderRadius } from "./myradius"
 import * as WailsGo from "../../../wailsjs/go/main/App"
 import { Public, Web } from "@mui/icons-material"
@@ -21,9 +21,11 @@ const ButtonLink = (prop: { url: string, name: string }) => {
 export const MenuFooter = () => {
     let ctx = AppContext.current;
 
-    return (
-        <MyBorderRadius>
-            <>
+    return ( 
+            <Box sx={{
+                background : "#ccc", 
+                paddingBottom : 1,
+            }}>
             <List>
                 <ButtonLink
                     name="PT.Oricar Ori Indonesia"
@@ -38,7 +40,6 @@ export const MenuFooter = () => {
             <Typography textAlign="center" fontSize="13px">
                 Quran-Terjemah App (v-{ctx.appverion}) 
             </Typography>
-            </>
-        </MyBorderRadius>
+            </Box> 
     )
 }
