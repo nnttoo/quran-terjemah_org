@@ -6,7 +6,5 @@
     "scripts": {
         "wails_dev": "wails dev",
         "wails_build": "wails build"
-    },
-    "dependencies": { 
-    }
+    } 
 }

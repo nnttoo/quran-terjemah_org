@@ -9,6 +9,10 @@ import { AyahListElemChild } from "./ayahListElemChild";
 
 
 let idWaitingCreator = 0;
+function getIdWaitingCreator(){
+    idWaitingCreator++;
+    return idWaitingCreator;
+}
 
 export const AyahListElem = (p: {
     surahdata: SurahData | null,
@@ -29,13 +33,16 @@ export const AyahListElem = (p: {
          
         let ismount = true;
         let waitingId = 0;
-        let waitToScroll = async ()=>{
-            idWaitingCreator++;
-            let myWaitId = idWaitingCreator;
-            waitingId = myWaitId;
 
+        let waitToScroll = async ()=>{ 
+            let myWaitId = getIdWaitingCreator();
+            waitingId = myWaitId;
             while(true){
                 if(waitingId != myWaitId){
+                    break;
+                }
+
+                if(!ismount){
                     break;
                 }
 
@@ -50,11 +57,21 @@ export const AyahListElem = (p: {
 
                     break;
                 }
-
                 await sleep(200);
-
-
             }
+        }
+
+        let progresiveSetMaxAyah = async (jsonlength : number)=>{
+            let max = maxayahDraw;
+            while (max < jsonlength) {
+                await sleep(100) 
+                if (!ismount) { 
+                    break;
+                }
+
+                max = max + 50; 
+                setMaxAyahDraw(max);
+            } 
         }
 
         (async () => {
@@ -80,19 +97,7 @@ export const AyahListElem = (p: {
             setListAyah(listAyahJson);
 
             if (listAyahJson.length > 10) {
-
-                let max = maxayahDraw;
-                while (max < listAyahJson.length) {
-                    await sleep(100) 
-                    if (!ismount) { 
-                        break;
-                    }
-
-                    max = max + 50; 
-                    setMaxAyahDraw(max);
-                } 
-
-                
+                progresiveSetMaxAyah(listAyahJson.length); 
             } 
 
             if(p.scrolltoAyat != null){

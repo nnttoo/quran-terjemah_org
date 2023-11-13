@@ -1,6 +1,6 @@
 
-export const workerUrlGetAyahById = "/myfolder/worker_script_get_surahbyid.js"
-export const workerUrlGetAllSurah = "/myfolder/worker_script_getAllsurah.js"
+export const workerUrlGetAyahById = "/myfolder/worker_s_getayah.js"
+export const workerUrlGetAllSurah = "/myfolder/worker_s_getsurah.js"
 export type WorkerArgGetSurahById = {
     surahid : string,
     bahasa : string,
@@ -20,7 +20,7 @@ export const workerRunner = <T, R>(p: {
         let worker = new Worker(p.url)
 
         worker.addEventListener("error",(e)=>{
-            console.log("web worker erro" + e)
+            console.log("web worker erro" + e.message) 
         })
         worker.addEventListener("message", (d) => {
             if(typeof d.data == "string" && d.data.startsWith("LOG:")){

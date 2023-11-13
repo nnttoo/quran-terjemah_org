@@ -7,6 +7,11 @@ import { Box, CssBaseline, Toolbar } from "@mui/material";
 import { DaftarAyahPage } from "./ayahpage/daftarAyah";
 import { LoadingReact } from "./loadingreact/loadingreact";
 
+let reqid = 0;
+function getReqId(){
+    reqid++;
+    return reqid;
+}
 
 
 export const HomePage = () => {
@@ -15,6 +20,7 @@ export const HomePage = () => {
 
     let ctx = AppContext.current;
     ctx.openpage = (p) => {
+        p.reqid = getReqId() + "";
         setPageInfo({...p});
     }
 
@@ -71,7 +77,7 @@ export const HomePage = () => {
                         ></DaftarSurah>
                     ) : (
                         <DaftarAyahPage
-                            key={pageInfo!.nomorayat + pageInfo?.nomorsurah + pageInfo?.scrollTo}
+                            key={pageInfo!.nomorayat + pageInfo?.nomorsurah + pageInfo?.scrollTo + pageInfo?.reqid}
                             scrollToayat={pageInfo!.scrollTo ? pageInfo!.scrollTo : null}
                             nomorayat={pageInfo!.nomorayat}
                             surahdata={getSurahData()}

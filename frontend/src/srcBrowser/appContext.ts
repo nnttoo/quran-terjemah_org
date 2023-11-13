@@ -3,11 +3,13 @@ import type { RightMenu } from "./menuelem/rightMenu";
 import { bahasa_id } from "./bahasa/id";
 import { bahasa_en } from "./bahasa/en";
 import { AppConfig, JenisBahasa } from "./tools/appconfig";
+
 export type HomePageInfo = {
     pagetype : "home" | "surah",
     nomorsurah : string,
     nomorayat : string,
     scrollTo? : string,
+    reqid? : string,
 }
 
 export class AppContext{  

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": true,
+      "jsx": "react",
+      "module": "es6",
+      "strict": true,
+      "moduleResolution": "node",
+      "noImplicitAny": true, 
+      "preserveConstEnums": true,
+      "target": "ESNext",
+      "allowJs": true,
+      "skipLibCheck": true,
+      "outDir": "out",
+      "noEmitOnError" : false,
+      "sourceMap": false,  
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop" : true, 
+  }, 
+  "exclude": [
+      "node_modules", 
+  ]
+}
