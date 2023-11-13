@@ -7,6 +7,7 @@ import { QorySelectorElem } from "./qorySelectorElem";
 import { MyBorderRadius } from "./myradius";
 import { MenuFooter } from "./footer";
 import { MenuOpen } from "@mui/icons-material";
+import { LatestPlayRightMenu } from "../bookmarktools/latestplay_mark_menu";
 
 
 
@@ -51,6 +52,9 @@ export const RightMenu = () => {
                         <MyBorderRadius>
                             <BookMarkRightMenu />
                         </MyBorderRadius> 
+                        <MyBorderRadius>
+                            <LatestPlayRightMenu/>
+                        </MyBorderRadius>
                     </Box>
                 </Box>
 

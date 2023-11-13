@@ -10,6 +10,7 @@ export type HomePageInfo = {
     nomorayat : string,
     scrollTo? : string,
     reqid? : string,
+    autoPlay? : boolean,
 }
 
 export class AppContext{  

@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { DeveloperBoard, Face, Info, IntegrationInstructions, Language, Mosque, PermDataSetting, Translate } from '@mui/icons-material/';
+import { DeveloperBoard, Face, Info, IntegrationInstructions, Language, Mosque, PermDataSetting, PlayCircle, Translate } from '@mui/icons-material/';
 import { AppContext } from '../appContext';
 import { PagePengaturanBahasa } from './page_pengaturan_bahasa';
 import { PengaturanQori } from './pengaturan_qori/pengaturan_qory';
 import { AboutPage } from './aboutpage';
+import { PagePengaturanPlayback } from './page_pengaturan_playback';
  
 
 export type PengaturanMenuType = {
@@ -38,13 +39,20 @@ export const pengMenuList = (): PengaturanMenuType[] => {
             name : "qori",
         }, 
 
+        {
+
+            icon: <PlayCircle />,
+            text: bahasa.pppml_playmode,
+            page: <PagePengaturanPlayback/>,
+            name : "playback",
+        }, 
         
         {
 
             icon: <Info />,
             text: bahasa.pppml_about,
             page: <AboutPage/>,
-            name : "qori",
+            name : "about",
         }, 
     ];
 }

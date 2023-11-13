@@ -14,7 +14,7 @@ export const BookMarkRightMenu = () => {
 
     return (
         <React.Fragment key={keyRefresh + ""}>
-            <b>Bookmarks : </b><br /><br />
+            <b>Bookmarks : </b><br />
 
             <List  >
                 {

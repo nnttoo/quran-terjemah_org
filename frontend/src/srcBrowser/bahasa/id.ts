@@ -4,7 +4,11 @@ export const bahasa_id = {
     pppp_pengaturan : "Pengaturan",
     pppml_pengaturanbahasa : "Bahasa",
     pppml_reciter : "Pengaturan Qori",
+    pppml_playmode : "Mode Pemutaran",
     pppml_about : "Tentang Pengembang",
+
+    //frontend/src/srcBrowser/bookmarktools/latestplay_mark_menu.tsx
+    lmm_last_played : "Sedang Diputar",
 
 
     //frontend/src/srcBrowser/page_pengaturan/page_pengaturan_bahasa.tsx
@@ -29,4 +33,6 @@ export const bahasa_id = {
     
     ap_about  : about_id,
     
+    ppp_putarsemuasurat : "Putar semua surah",
+    ppp_simpan : "Simpan Pengaturan",
 }

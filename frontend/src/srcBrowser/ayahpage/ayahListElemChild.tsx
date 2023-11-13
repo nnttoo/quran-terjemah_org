@@ -4,10 +4,12 @@ import { BookmarkBut } from "../bookmarktools/bookmarkbut"
 import { AudioState, PlayerListener, PlayerListenerContext, PlayerListenerSaver } from "../audioplayer/ayahPlayerListenerSaver"
 import { useContext, useState } from "react"
 import { AyahPlayerButton } from "./ayahPlayerBut"
+import { LatestPlayMark } from "../bookmarktools/latestplay_mark"
 
 export const AyahListElemChild = (p: {
     dataAyah: DataAyat
     dataSurah: SurahData,  
+    jumlayAyat : number,
 }) => {
     const [bgDark, setBgDark] = useState(false); 
     let bgcolor = bgDark ? "#eee" : "#fff";
@@ -22,12 +24,20 @@ export const AyahListElemChild = (p: {
         let playerListener = playerListenerSaver.getPlayerListener({
             a: p.dataAyah.VerseID + "",
             s : p.dataSurah.id + "",
+            max : p.jumlayAyat,
         })
 
         if(playerListener == null) return;
 
         playerListener.onBGDark = (isdark)=>{
             setBgDark(isdark);
+            if(isdark){
+                LatestPlayMark.current.saveLatestPlay({
+                    ayah : p.dataAyah.VerseID + "",
+                    surahid :p.dataAyah.SuraID + "",
+                    name: p.dataSurah.nama_surah 
+                })
+            }
         }
 
 
@@ -68,6 +78,7 @@ export const AyahListElemChild = (p: {
                 />
 
                 <AyahPlayerButton
+                    jumlahAyat={p.jumlayAyat}
                     nomorAyat={p.dataAyah.VerseID + ""}
                     nomorSurat={p.dataSurah.id + ""} 
                 ></AyahPlayerButton> 

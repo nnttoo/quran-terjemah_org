@@ -1,10 +1,11 @@
 
-export type JenisBahasa = "id" | "en"
+export type JenisBahasa = "id" | "en"; 
 const localStorageKey = "qtAppConfig";
 
 export type AppConfigData = {
     bahasaUi : JenisBahasa
     bahasaTerjemahan : JenisBahasa
+    allsurahPlay : boolean,
 }
 export class AppConfig {
 

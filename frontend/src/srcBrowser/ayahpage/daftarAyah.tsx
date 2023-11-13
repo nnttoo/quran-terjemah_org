@@ -7,6 +7,7 @@ export const DaftarAyahPage = (prop: {
     nomorayat: string,
     surahdata: SurahData | null,
     scrollToayat: string | null,
+    autoPlay: boolean,
 }) => {
     if (prop.surahdata == null) {
         return <>Error</>
@@ -56,6 +57,7 @@ export const DaftarAyahPage = (prop: {
             </Typography>
 
             <AyahListElem
+                autoPlay={prop.autoPlay}
                 scrolltoAyat={prop.scrollToayat}
                 surahdata={prop.surahdata}
             ></AyahListElem>

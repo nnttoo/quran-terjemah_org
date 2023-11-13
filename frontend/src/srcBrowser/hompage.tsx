@@ -77,6 +77,7 @@ export const HomePage = () => {
                         ></DaftarSurah>
                     ) : (
                         <DaftarAyahPage
+                            autoPlay={pageInfo!.autoPlay ? pageInfo!.autoPlay : false }
                             key={pageInfo!.nomorayat + pageInfo?.nomorsurah + pageInfo?.scrollTo + pageInfo?.reqid}
                             scrollToayat={pageInfo!.scrollTo ? pageInfo!.scrollTo : null}
                             nomorayat={pageInfo!.nomorayat}

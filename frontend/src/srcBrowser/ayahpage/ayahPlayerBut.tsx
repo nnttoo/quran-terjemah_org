@@ -3,90 +3,95 @@ import { Fab } from "@mui/material";
 import { AudioState, PlayerListenerContext } from "../audioplayer/ayahPlayerListenerSaver";
 import { useContext, useEffect, useRef, useState } from "react";
 function scrollToTargetAdjusted(element: HTMLElement | null) {
-    if(element == null) return;
-    
-    const elementRect = element.getBoundingClientRect();  
-    let scrollToY =  elementRect.top + window.scrollY;
+    if (element == null) return;
+
+    const elementRect = element.getBoundingClientRect();
+    let scrollToY = elementRect.top + window.scrollY;
 
     // nah supaya ditengah maka dikurangi window.innerHeight / 2
     scrollToY = scrollToY - (window.innerHeight / 2);
 
     window.scrollTo({
-      top: scrollToY,
-      behavior: "smooth",
-    }); 
+        top: scrollToY,
+        behavior: "smooth",
+    });
 }
 
-export const AyahPlayerButton = (p : { 
-    nomorSurat : string,
-    nomorAyat : string, 
+export const AyahPlayerButton = (p: {
+    nomorSurat: string,
+    nomorAyat: string,
+    jumlahAyat: number,
 
-})=>{
+}) => {
 
-    const [playState,setPlayState] = useState<AudioState>("pause");
+    const [playState, setPlayState] = useState<AudioState>("pause");
     const playerListenerSaver = useContext(PlayerListenerContext);
     const refHtml = useRef<HTMLDivElement>(null);
 
-    (()=>{
+    (() => {
 
-        if(playerListenerSaver == null) return;
+        if (playerListenerSaver == null) return;
         let playerListener = playerListenerSaver.getPlayerListener({
             a: p.nomorAyat,
-            s : p.nomorSurat,
+            s: p.nomorSurat,
+            max: p.jumlahAyat,
         })
-         
-        if(playerListener == null){ 
+
+        if (playerListener == null) {
             return;
         }
 
-        playerListener.onLoading = ()=>{ 
-            setPlayState("loading");            
+        playerListener.onLoading = () => {
+            setPlayState("loading");
         }
-        playerListener.onPause = ()=>{ 
+        playerListener.onPause = () => {
             setPlayState("pause")
         }
-        playerListener.onPlay = ()=>{ 
+        playerListener.onPlay = () => {
             setPlayState("play");
+
+
         }
 
-        playerListener.onScoll = ()=>{ 
+        playerListener.onScoll = () => {
             scrollToTargetAdjusted(refHtml.current);
         }
-    })(); 
+    })();
 
-    
+
 
     return (
         <div ref={refHtml}>
-        <Fab  color="info" aria-label="add"
-            size="small"
-            onClick={() => {
+            <Fab color="info" aria-label="add"
+                size="small"
+                onClick={() => {
 
-                if ( playState == "play") { 
+                    if (playState == "play") {
 
-                    playerListenerSaver?.stopAudio();
-                } else {
- 
- 
-                    playerListenerSaver?.playAudio({
-                        a: p.nomorAyat,
-                        s : p.nomorSurat,
-                    })
+                        playerListenerSaver?.stopAudio();
+                    } else {
+
+
+                        playerListenerSaver?.playAudio({
+                            a: p.nomorAyat,
+                            s: p.nomorSurat,
+                            max: p.jumlahAyat,
+                        })
+                    }
+
+                }}
+
+            > {
+                    playState == "play" ? (
+                        <Pause />
+                    ) : playState == "pause" ? (
+                        <PlayArrow />
+                    ) : (
+                        <AutoMode />
+                    )
                 }
 
-            }}
-
-        > {
-                playState == "play" ? (
-                    <Pause />
-                ) : playState == "pause" ? (
-                    <PlayArrow />
-                ) : (
-                    <AutoMode />
-                )
-            }
-
-        </Fab>
+            </Fab>
         </div>
     )
 }

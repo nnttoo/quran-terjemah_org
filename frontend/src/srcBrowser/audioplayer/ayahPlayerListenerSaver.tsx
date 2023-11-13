@@ -1,5 +1,7 @@
 import { createContext } from "react";
 import { QorySelector } from "./qorySelector";
+import { LatestPlayMark } from "../bookmarktools/latestplay_mark";
+import { AppContext } from "../appContext";
 
 export type PlayerListener = {
     onPlay: (() => void) | null,
@@ -12,6 +14,7 @@ export type PlayerListener = {
 type AyahSurahArg = {
     s : string,
     a : string,
+    max : number,
 }
 export type AudioState = "pause" | "play" | "loading"; 
 
@@ -57,11 +60,31 @@ export class PlayerListenerSaver {
             
             let numAyah = Number(p.a);
             numAyah++;
+
+            if(numAyah <= p.max){
+                this.playAudio({
+                    s : p.s,
+                    a: numAyah + "",
+                    max : p.max,
+                })
+            } else {
+                let ctx = AppContext.current;
+                let nextSurah = Number(p.s) + 1;
+
+                if(nextSurah <= 114 && ctx.appConfig.appConfigData.allsurahPlay){
+                    ctx.openpage({
+                        nomorayat : "1",
+                        nomorsurah : nextSurah + "",
+                        pagetype : "surah",
+                        autoPlay : true,
+
+                    })
+                }
+
+                
+            }
             
-            this.playAudio({
-                s : p.s,
-                a: numAyah + "",
-            })
+            
 
         })
 
@@ -74,6 +97,8 @@ export class PlayerListenerSaver {
             playerListener.onPlay?.();
             playerListener.onScoll?.();
             playerListener.onBGDark?.(true);
+
+           
         })
 
         QorySelector.current.onQoriChange = ()=>{

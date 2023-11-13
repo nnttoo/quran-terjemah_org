@@ -6,8 +6,12 @@ export const bahasa_en : typeof bahasa_id = {
     
     pppp_pengaturan : "Settings",
     pppml_pengaturanbahasa: "Language",
-    pppml_reciter : "Reciters",
+    pppml_reciter : "Reciters",    
+    pppml_playmode : "playback mode",
     pppml_about : "About",
+
+    
+    lmm_last_played : "Recently Played",
 
     ppb_bahasaui : "UI Language",
     ppb_bahasaterjemahan : "Translation Language",
@@ -28,4 +32,7 @@ export const bahasa_en : typeof bahasa_id = {
 
     ap_about  : about_en,
     
+    
+    ppp_putarsemuasurat : "Play all surahs",    
+    ppp_simpan : "Save Settings",
 }  
