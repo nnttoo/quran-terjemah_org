@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { daftarQory, QorySelector } from "../audioplayer/qorySelector";
+import {  QorySelector } from "../audioplayer/qorySelector";
 import { BookMarkRightMenu } from "../bookmarktools/bookmarkRightMenu";
 import { Box, Divider, Drawer, Link, List, MenuItem, Select, Toolbar, Typography } from "@mui/material";
 import { AppContext } from "../appContext";

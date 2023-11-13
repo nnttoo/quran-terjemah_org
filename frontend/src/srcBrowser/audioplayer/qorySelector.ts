@@ -5,129 +5,215 @@ function leadingZero(angka: string) {
     return angka;
 }
 export type QoryData = {
-    url : string,
-    nama : string,
+    url: string,
+    nama: string,
+    ftype : string,
 }
-export const daftarQory : QoryData[] = [
+const defDaftarQory: QoryData[] = [
 
     {
-        nama : "Ibrahim Akhdar",
+        nama: "Ibrahim Akhdar",
         //url : "/sound/ibrahimakhdar/",
-        url :'https://www.everyayah.com/data/Ibrahim_Akhdar_32kbps/',
+        url: 'https://www.everyayah.com/data/Ibrahim_Akhdar_32kbps/',
+        ftype : "mp3"
     },
 
     {
-        nama : "Ghamidi",
-        url : "https://www.everyayah.com/data/Ghamadi_40kbps/",
+        nama: "Ghamidi",
+        url: "https://www.everyayah.com/data/Ghamadi_40kbps/",
+        ftype : "mp3"
 
     },
     {
-        nama : "Hani Rifai",
-        url : "https://www.everyayah.com/data/Hani_Rifai_192kbps/",
-    }, 
+        nama: "Hani Rifai",
+        url: "https://www.everyayah.com/data/Hani_Rifai_192kbps/",
+        ftype : "mp3"
+    },
     {
-        nama : "Alafasy",
-        url : "https://www.everyayah.com/data/Alafasy_64kbps/",
-    }, 
+        nama: "Alafasy",
+        url: "https://www.everyayah.com/data/Alafasy_64kbps/",
+        ftype : "mp3"
+    },
     {
-        nama : "Abdul Basit Abdul Samad",
-        url : "https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/",
-    }, 
+        nama: "Abdul Basit Abdul Samad",
+        url: "https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/",
+        ftype : "mp3"
+    },
     {
-        nama : "Abdul Basit Mujawwad",
-        url : "https://www.everyayah.com/data/Abdul_Basit_Mujawwad_128kbps/",
-    }, 
+        nama: "Abdul Basit Mujawwad",
+        url: "https://www.everyayah.com/data/Abdul_Basit_Mujawwad_128kbps/",
+        ftype : "mp3"
+    },
     {
-        nama : "Abdullah Basfar",
-        url : "https://www.everyayah.com/data/Abdullah_Basfar_64kbps/",
-    }, 
+        nama: "Abdullah Basfar",
+        url: "https://www.everyayah.com/data/Abdullah_Basfar_64kbps/",
+        ftype : "mp3"
+    },
     {
-        nama : "Abdurrahmaan As-Sudais",
-        url : "https://www.everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/",
-    }, 
+        nama: "Abdurrahmaan As-Sudais",
+        url: "https://www.everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/",
+        ftype : "mp3"
+    },
     {
-        nama : "Ali Jaber",
-        url : "https://www.everyayah.com/data/Ali_Jaber_64kbps/",
-    }, 
+        nama: "Ali Jaber",
+        url: "https://www.everyayah.com/data/Ali_Jaber_64kbps/",
+        ftype : "mp3"
+    },
     {
-        nama : "Fares Abbad",
-        url : "https://www.everyayah.com/data/Fares_Abbad_64kbps/",
-    }, 
+        nama: "Fares Abbad",
+        url: "https://www.everyayah.com/data/Fares_Abbad_64kbps/",
+        ftype : "mp3"
+    },
 ]
 
 
-export class QorySelector{
+export class QorySelector {
     static current = new QorySelector();
-    currentQory = daftarQory[0];
-    onQoriChange : ()=>void = ()=>{}
+    private daftarQory: QoryData[] | null = null;
+    private currentQory: QoryData | null = null;
+    onQoriChange: () => void = () => { }
 
-    constructor(){
-        this.loadQory();
+    constructor() {
+        this.loadDaftarQori();
+        this.loadQorySelected();
     }
 
-    loadQory(){ 
+    private loadDaftarQori() {
+        let nDaftar: QoryData[] | null = null;
         try {
-            
-            let localstorage =  window.localStorage
-            let savedQoryURL = localstorage.getItem("savedqory"); 
-            let savedQory : QoryData | null = null;
-            if(savedQoryURL != null){
-                daftarQory.forEach((d)=>{
-                    if(d.url == savedQoryURL){
-                        savedQory = d;
-                    }
-                })
-            }
+            let localstorage = window.localStorage
+            let txtDftarQory = localstorage.getItem("daftarqori");
 
-            if(savedQory != null){
-                this.currentQory = savedQory;
-            }
+            nDaftar = JSON.parse(txtDftarQory!);
+        } catch (error) {
+
+        }
+
+        if (nDaftar == null || nDaftar.length == 0) {
+            nDaftar = defDaftarQory;
+        }
+
+        this.daftarQory = nDaftar;
+    }
+
+    private checkQorySelected(qUrl: string) {
+        let savedQory: QoryData | null = null;
+        if (qUrl != null) {
+            this.daftarQory!.forEach((d) => {
+                if (d.url == qUrl) {
+                    savedQory = d;
+                }
+            })
+        }
+
+        if (savedQory == null) {
+            savedQory = this.daftarQory![0];
+        }
+
+        return savedQory;
+    }
+
+    private loadQorySelected() {
+        try {
+
+            let localstorage = window.localStorage
+            let savedQoryURL = localstorage.getItem("savedqory");
+
+
+            this.currentQory = this.checkQorySelected(savedQoryURL!);
 
         } catch (error) {
-            
-        }        
-        
 
-        return this.currentQory;
+        }
+
+
     }
 
-    getQory(){
-        if(this.currentQory == null){
-            this.currentQory = daftarQory[0];
+    resetToDeaultQori(){
+        this.daftarQory = defDaftarQory;
+    }
+
+    getQory() {
+        if (this.currentQory == null) {
+            this.currentQory = this.daftarQory![0];
         }
 
         return this.currentQory;
     }
 
-    changeQory(q : QoryData){
+    getDaftarQory() {
+        if (this.daftarQory == null) {
+            this.daftarQory = defDaftarQory;
+        }
+
+        return this.daftarQory;
+    }
+
+    saveDaftarQory(ndaftar: QoryData[], safetoLocalStorage?: boolean) {
+
+        if (this.daftarQory == null) return;
+        if (this.daftarQory.length < 1) return;
+
+
+        this.daftarQory = ndaftar;
+
+        this.currentQory = this.checkQorySelected(this.currentQory?.url!);
+        if (!safetoLocalStorage) return;
+
+        try {
+
+            let localStorage = window.localStorage;
+            localStorage.setItem("daftarqori", JSON.stringify(this.daftarQory))
+        } catch (error) {
+
+        }
+    }
+
+    changeQory(q: QoryData) {
         this.currentQory = q;
         try {
-            
-            let localstorage =  window.localStorage
-            localstorage.setItem("savedqory",q.url);
-        
+
+            let localstorage = window.localStorage
+            localstorage.setItem("savedqory", q.url);
+
         } catch (error) {
-            
+
         }
 
-        if(this.onQoriChange){
+        if (this.onQoriChange) {
             this.onQoriChange();
         }
     }
 
-    getQoryUrl(a : {
-        ns : string,
-        na : string,
+    getQoryUrl(a: {
+        ns: string,
+        na: string,
     }) {
 
-        let qury = this.getQory();
+        let qury = this.getQory(); 
+
+        if(!qury.url.endsWith("/") && !qury.url.endsWith("\\")){
+           qury.url = qury.url + "/";
+        }
+
+        if(!qury.ftype || qury.ftype == ""){
+            qury.ftype = "mp3"
+        }
+
         let src = qury.url +
-        leadingZero(a.ns) +
-        leadingZero(a.na) +
-        ".mp3";
+            leadingZero(a.ns) +
+            leadingZero(a.na) +
+            "." + qury.ftype;
+
+
+           
+        if(!src.startsWith("http")){
+            let base64 = btoa(src);
+            src = "/sembarang.mp3?arg=" + encodeURIComponent(base64);
+        }
 
         return src;
     }
 
-     
+
 }

@@ -38,8 +38,7 @@ export async function getAyahById(surahid : string) : Promise<{listayat : DataAy
             bahasa : appConfig.bahasaTerjemahan
         } 
     })  
-    
-    console.log(workerResult);
+     
  
     return {
         listayat : workerResult!

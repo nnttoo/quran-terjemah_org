@@ -1,9 +1,10 @@
 import { bahasa_id } from "./id";
 
-export const bahasa_en = {
+export const bahasa_en : typeof bahasa_id = {
     
     pppp_pengaturan : "Settings",
     pppml_pengaturanbahasa: "Language",
+    pppml_reciter : "Reciters",
 
 
     ppb_bahasaui : "UI Language",
@@ -15,4 +16,12 @@ export const bahasa_en = {
     
     md_tutup : "Close",
 
-} as  typeof bahasa_id 
+    pq_hapus : "Delete",    
+    pq_folder : "Folder",
+    pq_url : "Url",    
+    pq_name : "Reciters Name",    
+    pq_reset_qory : "Reset Reciters",
+    
+    pq_simpan_setting : "Save Setting",    
+    pq_file_ext : "File Extension",
+}  

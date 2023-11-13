@@ -2,6 +2,7 @@ import { Button, Link, List, ListItemButton, ListItemIcon, ListItemText, Typogra
 import { MyBorderRadius } from "./myradius"
 import * as WailsGo from "../../../wailsjs/go/main/App"
 import { Public, Web } from "@mui/icons-material"
+import { AppContext } from "../appContext"
 
 const ButtonLink = (prop: { url: string, name: string }) => {
     return (
@@ -18,6 +19,8 @@ const ButtonLink = (prop: { url: string, name: string }) => {
 }
 
 export const MenuFooter = () => {
+    let ctx = AppContext.current;
+
     return (
         <MyBorderRadius>
             <>
@@ -33,7 +36,7 @@ export const MenuFooter = () => {
             </List>
             
             <Typography textAlign="center" fontSize="13px">
-                Quran-Terjemah App (v-01) 
+                Quran-Terjemah App (v-{ctx.appverion}) 
             </Typography>
             </>
         </MyBorderRadius>

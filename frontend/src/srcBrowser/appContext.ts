@@ -13,7 +13,7 @@ export type HomePageInfo = {
 }
 
 export class AppContext{  
-    
+    appverion = "1.02";
     appConfig! : AppConfig;
     
     constructor(){

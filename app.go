@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"quran-terjemah-go/srcgo"
+
+	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
 // App struct
@@ -31,4 +33,12 @@ func (a *App) OpenUrl(url string) string {
 	srcgo.Open(url)
 
 	return "ok"
+}
+func (a *App) OpenFolder(deffolder string) string {
+	str, _ := runtime.OpenDirectoryDialog(a.ctx, runtime.OpenDialogOptions{
+		DefaultDirectory: deffolder,
+		Title:            "Select Folder",
+	})
+
+	return str
 }

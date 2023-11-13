@@ -3,4 +3,6 @@
 
 export function Greet(arg1:string):Promise<string>;
 
+export function OpenFolder(arg1:string):Promise<string>;
+
 export function OpenUrl(arg1:string):Promise<string>;

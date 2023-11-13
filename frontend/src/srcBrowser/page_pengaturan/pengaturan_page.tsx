@@ -1,17 +1,18 @@
-import Box from '@mui/material/Box'; 
+import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography'; 
+import Typography from '@mui/material/Typography';
 import { PengaturanSidebar } from './pengaturan_sidebar';
 import { PengaturanMenuType, pengMenuList, } from './pengaturan_menu_list';
-import React, { useEffect, useMemo, useState } from 'react'; 
+import React, { useEffect, useMemo, useState } from 'react';
 import { AppContext } from '../appContext';
+import { Height } from '@mui/icons-material';
 
 
 export const PengaturanPage = (props: {
-    menuname: string, 
+    menuname: string,
 }) => {
- 
+
     const [listmenu, setListMenu] = useState<PengaturanMenuType[]>(pengMenuList());
     const [menuSelected, setMenuSelected] = React.useState<PengaturanMenuType | null>((() => {
         let menuname = props.menuname;
@@ -35,13 +36,13 @@ export const PengaturanPage = (props: {
             return null;
         }
     })());
-    
-    const {bahasa} = AppContext.current;
- 
+
+    const { bahasa } = AppContext.current;
+
 
     return (
-        
-        <Box sx={{ display: "flex", height: "100%" }} > 
+
+        <Box sx={{ display: "flex", flexDirection: "row", height: "100%" }} >
             <PengaturanSidebar
                 menuselected={menuSelected}
                 listmenu={listmenu}
@@ -49,21 +50,25 @@ export const PengaturanPage = (props: {
                     setMenuSelected(m);
                 }} />
 
-            
-            <Box
-                sx={{ flex: 1 }}
-            >
-                <AppBar position="static"  >
-                    <Toolbar variant='dense'>
-                        <Typography variant="h6"> 
-                        {menuSelected ? menuSelected.text : bahasa.pppp_pengaturan}
-                    </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Box padding={2}>
-                    {menuSelected ? menuSelected.page : <></>}
-                </Box>
 
+            <Box sx={{ flex: 1}} >
+
+
+                 <Box display="flex" sx={{height : "100%"}} flexDirection="column">
+                    <AppBar position="static"  >
+                        <Toolbar variant='dense'>
+                            <Typography variant="h6">
+                                {menuSelected ? menuSelected.text : bahasa.pppp_pengaturan}
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+
+                    
+                    <Box flex={1} p={2} sx={{overflowY : "auto"}}>  
+                        {menuSelected?.page}
+                    </Box>
+                </Box>  
+            
             </Box>
         </Box>
     );

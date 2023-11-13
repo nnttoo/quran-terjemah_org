@@ -2,6 +2,7 @@
 export const bahasa_id = {
     pppp_pengaturan : "Pengaturan",
     pppml_pengaturanbahasa : "Bahasa",
+    pppml_reciter : "Pengaturan Qori",
 
 
     //frontend/src/srcBrowser/page_pengaturan/page_pengaturan_bahasa.tsx
@@ -14,4 +15,14 @@ export const bahasa_id = {
 
     //frontend/src/srcBrowser/dialog/myalert_dialog.tsx
     md_tutup : "Tutup",
+
+    //frontend/src/srcBrowser/page_pengaturan/pengaturan_qori/pengaturan_qory.tsx
+
+    pq_hapus : "Hapus",
+    pq_folder : "Folder",
+    pq_url : "Url",
+    pq_name : "Nama Qori",
+    pq_reset_qory : "Reset Qori",
+    pq_simpan_setting : "Simpan Pengaturan",
+    pq_file_ext : "Ekstensi File",
 }

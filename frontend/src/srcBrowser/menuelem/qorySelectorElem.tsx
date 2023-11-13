@@ -1,6 +1,6 @@
 import { Box, MenuItem, Select } from "@mui/material"
 import React, { useEffect, useState } from "react"
-import { QoryData, QorySelector, daftarQory } from "../audioplayer/qorySelector"
+import { QoryData, QorySelector } from "../audioplayer/qorySelector"
 
 export const QorySelectorElem = () => {
     const [sqorydata,setSqoryData] = useState<QoryData | null>(null);
@@ -11,6 +11,7 @@ export const QorySelectorElem = () => {
 
     },[])
 
+    let daftarQory = QorySelector.current.getDaftarQory();
     return (
         <>
             <Box marginBottom={2}>Pembaca (Qari) : </Box>
