@@ -9,7 +9,7 @@ function scrollToTargetAdjusted(element: HTMLElement | null) {
     let scrollToY = elementRect.top + window.scrollY;
 
     // nah supaya ditengah maka dikurangi window.innerHeight / 2
-    scrollToY = scrollToY - (window.innerHeight / 2);
+    scrollToY = scrollToY - (window.innerHeight - 100 );
 
     window.scrollTo({
         top: scrollToY,
