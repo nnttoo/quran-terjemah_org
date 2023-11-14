@@ -11,6 +11,8 @@ Sumber audio di dalam aplikasi ini berasal dari website lain, diantaranya dalah 
 
 ## Install
 
+[![download](./screenshot/download.png)](https://github.com/nnttoo/quran-terjemah_org/releases/latest)
+
 Untuk pengguna windows, anda bisa langsung mengunduh di [halaman release](https://github.com/nnttoo/quran-terjemah_org/releases/latest),
 sedangkan untuk pengguna Os lain, anda bisa build dari source dengan cara   
 
