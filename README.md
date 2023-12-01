@@ -30,6 +30,7 @@ For complete information about wails, you can see it here [wails](https://wails.
 ## Screenshot
 
 ![ss](./screenshot/ss.png) 
+![ss3](./screenshot/ss3.png) 
  
 ## Offline Reciters Playback
 
