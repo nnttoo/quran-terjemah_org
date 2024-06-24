@@ -69,6 +69,7 @@ const QoryEditor = (p: {
             <Typography variant="caption" gutterBottom>
                {bahasa.pq_url}
             </Typography>
+            
             <TextField
                fullWidth
                size="small"
@@ -81,24 +82,14 @@ const QoryEditor = (p: {
 
                }}
             />
-            <Box mt={2}
-               display="flex"
-               flexDirection="row"
-               gap={2}
-               justifyContent="space-around"
-            >
-               <Fab
-                  size="small"
-                  color="warning"
-                  variant="circular"
+            <Typography variant="caption" gutterBottom>
+               {bahasa.pq_folder}
+            </Typography>
 
-                  onClick={() => {
-                     p.onRemove(qoriData);
-                  }}
-               > <Delete />
-               </Fab>
+             
 
-               <Button
+            <Button
+                  fullWidth
                   size="small"
                   color="primary"
                   variant="contained"
@@ -115,6 +106,26 @@ const QoryEditor = (p: {
                >
                   {bahasa.pq_folder}
                </Button>
+
+            <Box mt={2}
+               display="flex"
+               flexDirection="row"
+               gap={2}
+               justifyContent="space-around"
+            >
+               <Fab
+                  size="small"
+                  color="warning"
+                  variant="circular"
+
+                  onClick={() => {
+                     p.onRemove(qoriData);
+                  }}
+               > 
+                  <Delete />
+               </Fab>
+
+               
             </Box>
          </Box>
       </Box>

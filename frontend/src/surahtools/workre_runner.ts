@@ -7,7 +7,7 @@ export type WorkerArgGetSurahById = {
 }
 
 export type WorkerGetAllSurahArg = {
-    bahasa : string,
+    bahasa : string, 
 }
 
 
